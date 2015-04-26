@@ -1,4 +1,5 @@
 
+
 ## setwd("C:/Users/Sanjeev/Documents/getdata-projectfiles-UCI Har Dataset/UCI HAR Dataset")
 
 ## Read TEST subject, activity and measurement data
