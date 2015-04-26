@@ -1,6 +1,6 @@
 README file
 
-This file takes as input the data and codebooks supplied from the Samsung wearables project provided as a zip
+This file takes as input the data supplied from the Samsung wearables project provided as a zip
 file. Files in the zip file were extracted and stored in the directory "UCI HAR Dataset" which is a sub directory of 
 my working directory. This directory has the codebook and other descriptive files and has two further sub directories "test" 
 and "train" which contain the test and the training data from the project.
