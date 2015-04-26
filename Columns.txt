@@ -1,87 +1,201 @@
- "Subject and Activity"                     
- "TimeBodyAccMeanXaxis"                     
- "TimeBodyAccMeanYaxis"                     
- "TimeBodyAccMeanZaxis"                     
- "TimeBodyAccStdDevXaxis"                   
- "TimeBodyAccStdDevYaxis"                   
- "TimeBodyAccStdDevZaxis"                   
- "TimeGravityAccMeanXaxis"                  
- "TimeGravityAccMeanYaxis"                  
-"TimeGravityAccMeanZaxis"                  
-"TimeGravityAccStdDevXaxis"                
-"TimeGravityAccStdDevYaxis"                
-"TimeGravityAccStdDevZaxis"                
-"TimeBodyAccJerkMeanXaxis"                 
-"TimeBodyAccJerkMeanYaxis"                 
-"TimeBodyAccJerkMeanZaxis"                 
-"TimeBodyAccJerkStdDevXaxis"               
-"TimeBodyAccJerkStdDevYaxis"               
-"TimeBodyAccJerkStdDevZaxis"               
-"TimeBodyGyroMeanXaxis"                    
-"TimeBodyGyroMeanYaxis"                    
-"TimeBodyGyroMeanZaxis"                    
-"TimeBodyGyroStdDevXaxis"                  
-"TimeBodyGyroStdDevYaxis"                  
-"TimeBodyGyroStdDevZaxis"                  
-"TimeBodyGyroJerkMeanXaxis"                
-"TimeBodyGyroJerkMeanYaxis"                
-"TimeBodyGyroJerkMeanZaxis"                
-"TimeBodyGyroJerkStdDevXaxis"              
-"TimeBodyGyroJerkStdDevYaxis"              
-"TimeBodyGyroJerkStdDevZaxis"              
-"TimeBodyAccMagMean"                       
-"TimeBodyAccMagStdDev"                     
-"TimeGravityAccMagMean"                    
-"TimeGravityAccMagStdDev"                  
-"TimeBodyAccJerkMagMean"                   
-"TimeBodyAccJerkMagStdDev"                 
-"TimeBodyGyroMagMean"                      
-"TimeBodyGyroMagStdDev"                    
-"TimeBodyGyroJerkMagMean"                  
-"TimeBodyGyroJerkMagStdDev"                
-"FreqBodyAccMeanXaxis"                     
-"FreqBodyAccMeanYaxis"                     
-"FreqBodyAccMeanZaxis"                     
-"FreqBodyAccStdDevXaxis"                   
-"FreqBodyAccStdDevYaxis"                   
-"FreqBodyAccStdDevZaxis"                   
-"FreqBodyAccMeanFreqXaxis"                 
-"FreqBodyAccMeanFreqYaxis"                 
-"FreqBodyAccMeanFreqZaxis"                 
-"FreqBodyAccJerkMeanXaxis"                 
-"FreqBodyAccJerkMeanYaxis"                 
-"FreqBodyAccJerkMeanZaxis"                 
-"FreqBodyAccJerkStdDevXaxis"               
-"FreqBodyAccJerkStdDevYaxis"               
-"FreqBodyAccJerkStdDevZaxis"               
-"FreqBodyAccJerkMeanFreqXaxis"             
-"FreqBodyAccJerkMeanFreqYaxis"             
-"FreqBodyAccJerkMeanFreqZaxis"             
-"FreqBodyGyroMeanXaxis"                    
-"FreqBodyGyroMeanYaxis"                    
-"FreqBodyGyroMeanZaxis"                    
-"FreqBodyGyroStdDevXaxis"                  
-"FreqBodyGyroStdDevYaxis"                  
-"FreqBodyGyroStdDevZaxis"                  
-"FreqBodyGyroMeanFreqXaxis"                
-"FreqBodyGyroMeanFreqYaxis"                
-"FreqBodyGyroMeanFreqZaxis"                
-"FreqBodyAccMagMean"                       
-"FreqBodyAccMagStdDev"                     
-"FreqBodyAccMagMeanFreq"                   
-"FreqBodyBodyAccJerkMagMean"               
-"FreqBodyBodyAccJerkMagStdDev"             
-"FreqBodyBodyAccJerkMagMeanFreq"           
-"FreqBodyBodyGyroMagMean"                  
-"FreqBodyBodyGyroMagStdDev"                
-"FreqBodyBodyGyroMagMeanFreq"              
-"FreqBodyBodyGyroJerkMagMean"              
-"FreqBodyBodyGyroJerkMagStdDev"            
-"FreqBodyBodyGyroJerkMagMeanFreq"          
-"AngularVelTimeBodyAccMeanGravity"         
-"AngularVelTimeBodyAccJerkMeanGravityMean" 
-"AngularVelTimeBodyGyroMeanGravityMean"    
-"AngularVelTimeBodyGyroJerkMeanGravityMean"
-"AngularVelXGravityMean"                   
-"AngularVelYGravityMean"                   
-"AngularVelZGravityMean"    
+1. Incorporating herein by reference the data and documentation given for the project. I will not
+repeat the data/documentation given, but focus on the post-processing done on that data by me.
+
+2. First, The test Activity and Subject data is merged with the test data. Then the training 
+Activity and Subject data is merged with and training data. 
+
+3. Then the test and training datasets (fron 2 above) are merged together to 
+yield one data set. In the merge the TRAINING dataset is placed ahead of TEST data
+TRAINING data occupies the first 7352 rows and the 2947 rows of the TEST data starts from row 7353 
+onwards through row 10299.
+
+4. 88 columns fron the 563 columns in the original data were extracted. These were selected by the
+occurence of the terms mean and/or standard deviation in their descriptors. Column #s of the 
+extracted columns are listed in "INDEX OF EXTRACTED COLUMNS" included in this README file. The columns
+for Subject and Activity were collapsed into one column, this leaves a total of 87 columns in
+the output tidy data set. For the other 86 columns, the mean of the observations perataining to
+each Subject and Activity was computed to collapse the rows. With 30 subjects and 6 activity types
+this results in a tidy dataset with 180 rows and 87 columns. The computed 86 columns are listed below 
+"INDEX OF COMPUTED COLUMNS" along with an English description of what they mean.
+
+
+INDEX OF COMPUTED COLUMNS
+
+1. "Subject and Activity"        Subject # varies from 1-30, and one of the six activities engaged in      
+2. "TimeBodyAccMeanXaxis"        Mean of the Time Body Accelerometer mean on X axis             
+3. "TimeBodyAccMeanYaxis"        Mean of the Time Body Accelerometer mean on Y axis             
+4. "TimeBodyAccMeanZaxis"        Mean of the Time Body Accelerometer mean on Z axis             
+5. "TimeBodyAccStdDevXaxis"      Mean of the Time Body Accelerometer std. deviation on X axis             
+6. "TimeBodyAccStdDevYaxis"      Mean of the Time Body Accelerometer std. deviation on Y axis             
+7. "TimeBodyAccStdDevZaxis"      Mean of the Time Body Accelerometer std. deviation on Z axis             
+8. "TimeGravityAccMeanXaxis"     Mean of the Time Gravity Accelerometer mean on X axis             
+9. "TimeGravityAccMeanYaxis"     Mean of the Time Gravity Accelerometer mean on Y axis             
+10."TimeGravityAccMeanZaxis"      Mean of the Time Gravity Accelerometer mean on Z axis            
+11."TimeGravityAccStdDevXaxis"    Mean of the Time Gravity Accelerometer std deviation on X axis            
+12."TimeGravityAccStdDevYaxis"    Mean of the Time Gravity Accelerometer std deviation on Y axis            
+13."TimeGravityAccStdDevZaxis"    Mean of the Time Gravity Accelerometer std deviation on Z axis            
+14."TimeBodyAccJerkMeanXaxis"     Mean of the Time Gravity Accelerometer Jerk mean on X axis            
+15."TimeBodyAccJerkMeanYaxis"     Mean of the Time Gravity Accelerometer Jerk mean on Y axis            
+16."TimeBodyAccJerkMeanZaxis"     Mean of the Time Gravity Accelerometer Jerk mean on Z axis            
+17."TimeBodyAccJerkStdDevXaxis"   Mean of the Time Gravity Accelerometer Jerk std deviation on X axis            
+18."TimeBodyAccJerkStdDevYaxis"   Mean of the Time Gravity Accelerometer Jerk std deviation on Y axis            
+19."TimeBodyAccJerkStdDevZaxis"   Mean of the Time Gravity Accelerometer Jerk std deviation on Z axis            
+20."TimeBodyGyroMeanXaxis"        Mean of the Time Body Gyroscope mean on X axis            
+21."TimeBodyGyroMeanYaxis"        Mean of the Time Body Gyroscope mean on Y axis            
+22."TimeBodyGyroMeanZaxis"        Mean of the Time Body Gyroscope mean on Z axis            
+23."TimeBodyGyroStdDevXaxis"      Mean of the Time Body Gyroscope std deviation on X axis            
+24."TimeBodyGyroStdDevYaxis"      Mean of the Time Body Gyroscope std deviation on Y axis            
+25."TimeBodyGyroStdDevZaxis"      Mean of the Time Body Gyroscope std deviation on Z axis            
+26."TimeBodyGyroJerkMeanXaxis"    Mean of the Time Body Gyroscope Jerk mean on X axis            
+27."TimeBodyGyroJerkMeanYaxis"    Mean of the Time Body Gyroscope Jerk mean on Y axis            
+28."TimeBodyGyroJerkMeanZaxis"    Mean of the Time Body Gyroscope Jerk mean on Z axis            
+29."TimeBodyGyroJerkStdDevXaxis"  Mean of the Time Body Gyroscope Jerk std deviation on X axis            
+30."TimeBodyGyroJerkStdDevYaxis"  Mean of the Time Body Gyroscope Jerk std deviation on Y axis            
+31."TimeBodyGyroJerkStdDevZaxis"  Mean of the Time Body Gyroscope Jerk std deviation on Z axis            
+32."TimeBodyAccMagMean"           Mean of the Time Body Acceleration Magnitude mean            
+33."TimeBodyAccMagStdDev"         Mean of the Time Body Acceleration Magnitude std deviation            
+34."TimeGravityAccMagMean"        Mean of the Time Gravity Acceleration Magnitude mean            
+35."TimeGravityAccMagStdDev"      Mean of the Time Gravity Acceleration Magnitude std deviation            
+36."TimeBodyAccJerkMagMean"       Mean of the Time Body Acceleration Jerk Magnitude mean              
+37."TimeBodyAccJerkMagStdDev"     Mean of the Time Body Acceleration Jerk Magnitude std deviation            
+38.TimeBodyGyroMagMean"          Mean of the Time Body Gyro Magnitude mean           
+39."TimeBodyGyroMagStdDev"        Mean of the Time Body Gyro Magnitude std deviation            
+40."TimeBodyGyroJerkMagMean"      Mean of the Time Body Gyro Jerk Magnitude mean            
+41."TimeBodyGyroJerkMagStdDev"    Mean of the Time Body Gyro Jerk Magnitude std deviation            
+42."FreqBodyAccMeanXaxis"         Mean of the Frequency Body Acceleration Mean on X axis            
+43."FreqBodyAccMeanYaxis"         Mean of the Frequency Body Acceleration Mean on Y axis            
+44."FreqBodyAccMeanZaxis"         Mean of the Frequency Body Acceleration Mean on Z axis            
+45."FreqBodyAccStdDevXaxis"       Mean of the Frequency Body Acceleration std deviation on X axis            
+46."FreqBodyAccStdDevYaxis"       Mean of the Frequency Body Acceleration std deviation on Y axis            
+47."FreqBodyAccStdDevZaxis"       Mean of the Frequency Body Acceleration std deviation on Z axis            
+48."FreqBodyAccMeanFreqXaxis"     Mean of the Frequency Body Acceleration Mean Frequency on X axis            
+49."FreqBodyAccMeanFreqYaxis"     Mean of the Frequency Body Acceleration Mean Frequency on Y axis            
+50."FreqBodyAccMeanFreqZaxis"     Mean of the Frequency Body Acceleration Mean Frequency on Z axis            
+51."FreqBodyAccJerkMeanXaxis"     Mean of the Frequency Body Acceleration Jerk Mean on X axis            
+52."FreqBodyAccJerkMeanYaxis"     Mean of the Frequency Body Acceleration Jerk Mean on Y axis            
+53."FreqBodyAccJerkMeanZaxis"     Mean of the Frequency Body Acceleration Jerk Mean on Z axis            
+54."FreqBodyAccJerkStdDevXaxis"   Mean of the Frequency Body Acceleration Jerk std deviation on X axis            
+55."FreqBodyAccJerkStdDevYaxis"   Mean of the Frequency Body Acceleration Jerk std deviation on Y axis            
+56."FreqBodyAccJerkStdDevZaxis"   Mean of the Frequency Body Acceleration Jerk std deviation on Z axis            
+57."FreqBodyAccJerkMeanFreqXaxis" Mean of the Frequency Body Acceleration Jerk Frequency mean on X axis            
+58."FreqBodyAccJerkMeanFreqYaxis" Mean of the Frequency Body Acceleration Jerk Frequency mean on Y axis            
+59."FreqBodyAccJerkMeanFreqZaxis" Mean of the Frequency Body Acceleration Jerk Frequency mean on Z axis            
+60."FreqBodyGyroMeanXaxis"        Mean of the Frequency Body Gyro Mean on X axis            
+61."FreqBodyGyroMeanYaxis"        Mean of the Frequency Body Gyro Mean on Y axis            
+62."FreqBodyGyroMeanZaxis"        Mean of the Frequency Body Gyro Mean on Z axis            
+63."FreqBodyGyroStdDevXaxis"      Mean of the Frequency Body Gyro std deviation on X axis            
+64."FreqBodyGyroStdDevYaxis"      Mean of the Frequency Body Gyro std deviation on Y axis            
+65."FreqBodyGyroStdDevZaxis"      Mean of the Frequency Body Gyro std deviation on Z axis            
+66."FreqBodyGyroMeanFreqXaxis"    Mean of the Frequency Body Gyro mean Frequency on X axis            
+67."FreqBodyGyroMeanFreqYaxis"    Mean of the Frequency Body Gyro mean Frequency on Y axis            
+68."FreqBodyGyroMeanFreqZaxis"    Mean of the Frequency Body Gyro mean Frequency on Z axis            
+69."FreqBodyAccMagMean"           Mean of the Frequency Body Acceleration Magnitude mean            
+70."FreqBodyAccMagStdDev"         Mean of the Frequency Body Acceleration Magnitude std deviation            
+71."FreqBodyAccMagMeanFreq"       Mean of the Frequency Body Acceleration Magnitude Mean Frequency           
+72."FreqBodyAccJerkMagMean"       Mean of the Frequency Body Acceleration Jerk Magnitude Mean            
+73."FreqBodyAccJerkMagStdDev"     Mean of the Frequency Body Acceleration Jerk Magnitude std deviation            
+74."FreqBodyAccJerkMagMeanFreq"   Mean of the Frequency Body Acceleration Jerk Magnitude Mean          
+75."FreqBodyGyroMagMean"          Mean of the Frequency Body Gyro Magnitude Mean        
+76."FreqBodyGyroMagStdDev"        Mean of the Frequency Body Gyro Magnitude std deviation        
+77."FreqBodyGyroMagMeanFreq"      Mean of the Frequency Body Gyro Magnitude Mean Frequency        
+78."FreqBodyGyroJerkMagMean"      Mean of the Frequency Body Gyro Jerk Magnitude Mean        
+79."FreqBodyGyroJerkMagStdDev"    Mean of the Frequency Body Gyro Magnitude std deviation        
+80."FreqBodyGyroJerkMagMeanFreq"  Mean of the Frequency Body Gyro Magnitude Mean Frequency        
+81."AngularVelTimeBodyAccMeanGravity"  Mean of the Angular Velocity Time Body Acceleraton Mean Gravity       
+82."AngularVelTimeBodyAccJerkMeanGravity" Mean of the Angular Velocity Time Body Acceleraton Jerk Mean Gravity
+83."AngularVelTimeBodyGyroMeanGravity"    Mean of the Angular Velocity Time Body Gyro Mean Gravity
+84."AngularVelTimeBodyGyroJerkMeanGravity" Mean of the Angular Velocity Time Body Gyro Jerk Mean Gravity
+85."AngularVelXGravityMean"        Mean of the Angular Velocity Gravity mean on X axis           
+86."AngularVelYGravityMean"        Mean of the Angular Velocity Gravity mean on Y axis            
+87."AngularVelZGravityMean"        Mean of the Angular Velocity Gravity mean on Z axis
+
+INDEX OF EXTRACTED COLUMNS
+1,
+2,
+3,
+4,
+5,
+6,
+41,
+42,
+43,
+44,
+45,
+46,
+81,
+82,
+83,
+84,
+85,
+86,
+121,
+122,
+123,
+124,
+125,
+126,
+161,
+162,
+163,
+164,
+165,
+166,
+201,
+202,
+214,
+215,
+227,
+228,
+240,
+241,
+253,
+254,
+266,
+267,
+268,
+269,
+270,
+271,
+294,
+295,
+296,
+345,
+346,
+347,
+348,
+349,
+350,
+373,
+374,
+375,
+424,
+425,
+426,
+427,
+428,
+429,
+452,
+453,
+454,
+503,
+504,
+513,
+516,
+517,
+526,
+529,
+530,
+539,
+542,
+543,
+552,
+555,
+556,
+557,
+558,
+559,
+560,
+561,
+562,
+563
+
